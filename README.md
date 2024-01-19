@@ -25,7 +25,6 @@ pnpm i typescript @types/node tsx tsup -D
 npx tsc --init
 pnpm i fastify
 pnpm i eslint -D
-pnpm init @eslint/config
 pnpm create @eslint/config
 pnpm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 pnpm run lint

@@ -1,5 +1,9 @@
 # First project with Node.js
 
+> #### Description
+
+This project aims to learn how to create a server, add users, and implement other functionalities.
+
 > #### Ideas
 
 - [x] Create a server

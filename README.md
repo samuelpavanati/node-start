@@ -19,6 +19,7 @@ User {
 > #### Doubts
 
 # Commands
+```
 pnpm init
 pnpm i typescript @types/node tsx tsup -D
 npx tsc --init
@@ -28,6 +29,7 @@ pnpm init @eslint/config
 pnpm create @eslint/config
 pnpm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 pnpm run lint
+```
 
 # Node
 > [Learn Node](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)

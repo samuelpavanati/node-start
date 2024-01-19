@@ -2,7 +2,7 @@
 
 > #### Ideas
 
-- [ ] Create a server
+- [x] Create a server
 - [ ] Create a user
 - [ ] Create tests
 - [ ] Create features for the user

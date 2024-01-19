@@ -29,6 +29,8 @@ pnpm init @eslint/config
 pnpm create @eslint/config
 pnpm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 pnpm run lint
+pnpm run dev
+
 ```
 
 # Node

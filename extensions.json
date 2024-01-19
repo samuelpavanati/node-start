@@ -1,0 +1,21 @@
+[
+  "ms-vscode-remote.remote-containers",
+  "ms-azuretools.vscode-docker",
+  "mikestead.dotenv",
+  "dbaeumer.vscode-eslint",
+  "miguelsolorio.fluent-icons",
+  "mhutchie.git-graph",
+  "github.vscode-github-actions",
+  "VisualStudioExptTeam.vscodeintellicode",
+  "VisualStudioExptTeam.intellicode-api-usage-examples",
+  "shd101wyy.markdown-preview-enhanced",
+  "christian-kohler.npm-intellisense",
+  "rocketseat.theme-omni",
+  "ms-ossdata.vscode-postgresql",
+  "Prisma.prisma",
+  "chrmarti.regex",
+  "humao.rest-client",
+  "alexcvzz.vscode-sqlite",
+  "miguelsolorio.symbols",
+  "ms-vscode-remote.remote-wsl"
+]

@@ -7,11 +7,12 @@ This project aims to learn how to create a server, add users, and implement othe
 > #### Ideas
 
 - [x] Create a server
-- [ ] Create a user
+- [x] Create a user
+- [ ] Register users with Prisma
 - [ ] Create tests
 - [ ] Create features for the user
-
 ```
+
 User {
   id
   name
@@ -42,4 +43,4 @@ pnpm i @fastify/cookie
 
 # Node
 > [Learn Node](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
-
+> [HTTP Request Methods](https://www.w3schools.com/tags/ref_httpmethods.asp)

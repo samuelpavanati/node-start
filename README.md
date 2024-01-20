@@ -33,6 +33,10 @@ pnpm create @eslint/config
 pnpm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 pnpm run lint
 pnpm run dev
+pnpm i zod
+pnpm i @fastify/jwt
+pnpm i dotenv
+pnpm i @fastify/cookie
 
 ```
 

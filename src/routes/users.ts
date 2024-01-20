@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
+import fs from 'fs/promises'
 
 export async function users(app: FastifyInstance) {
 	app.get('/users', async(request: FastifyRequest, reply: FastifyReply) => {
@@ -13,6 +14,9 @@ export async function users(app: FastifyInstance) {
 	})  
 
 	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
+
+		const buffers = []
+
 		const registerUserSchema = z.object({
 			name: z.string(),
 			email: z.string().email(),
@@ -21,11 +25,28 @@ export async function users(app: FastifyInstance) {
 
 		const { name, email, password } = registerUserSchema.parse(request.body)
 
-		reply.send({
+		const saveUserSchema = {
 			id: randomUUID(),
-			name,
-			email,
-			password,
-		})
+			name: name,
+			email: email,
+			password: password,
+		}
+
+		// save to buffer
+		buffers.push(saveUserSchema)
+
+		// terminal
+		console.log(buffers)
+		
+		// convert to JSON
+		const saveUserToJSON = JSON.stringify(buffers, null, 2)
+
+		const saveFile = './user-data.json'
+
+		// save to file
+		await fs.appendFile(saveFile, saveUserToJSON)
+
+		// insomnia 
+		return reply.send(buffers)
 	})  
 }

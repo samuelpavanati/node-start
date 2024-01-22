@@ -33,6 +33,8 @@ pnpm i zod
 pnpm i @fastify/jwt
 pnpm i dotenv
 pnpm i @fastify/cookie
+pnpm i vitest -D
+pnpm i @vitest/ui -D
 ```
 
 # Implementation

@@ -16,13 +16,18 @@ export async function users(app: FastifyInstance) {
 	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
 		const path = './user-data.json'
 
-		const buffer = fs.readFileSync(path, 'utf8')
-
-		console.log('buffer', buffer)
+		let buffer = fs.readFileSync(path, 'utf8')
 
 		const buffers = []
 
-		buffers.push(buffer)
+		console.log(buffer)
+
+		if (buffer) {
+			buffer = JSON.parse(buffer)
+			buffers.push(buffer)
+			console.log(buffers)
+
+		}
 
 		const registerUserSchema = z.object({
 			name: z.string(),
@@ -41,29 +46,17 @@ export async function users(app: FastifyInstance) {
 
 		console.log('buffer antes', buffers)
 
+		buffer = JSON.stringify(saveUserSchema, null, 2)
+
+		buffer = JSON.parse(buffer)
+
 		// save to buffer
-		buffers.push(saveUserSchema)
+		// buffers = { ...buffer }
+		buffers.push(buffer)
 
-		// fs.readFile(path, 'utf-8')
-		// , (err, data) => {
-		// 	if (err) {
-		// 		console.log('Error! Cannot read the file!')
-		// 		return
-		// 	}
-
-		// 	try {
-		// 		const getData = JSON.parse(data)
-		// 		console.log('Data read from JSON file: ', getData) 
-		// 	} catch (err) {
-		// 		console.error('Error parsing JSON: ', err)
-		// 	}
-		// })
-
-		// terminal
-		// console.log(buffers)
-		
 		// convert to JSON
-		const saveUserToJSON = JSON.stringify(buffers, null, 2)
+		// const saveUserToJSON = JSON.stringify(buffers, null, 2)
+		const saveUserToJSON = JSON.stringify(buffers, null, 2).toString()
 
 		// save to file
 		fs.writeFile(path, saveUserToJSON, (err) => {

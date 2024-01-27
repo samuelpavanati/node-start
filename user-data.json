@@ -1,7 +1,14 @@
 [
-  "[\n  \"\",\n  {\n    \"id\": \"1603f593-fa65-4954-b2fa-35a46ba0a5e5\",\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"password\": \"123456\"\n  }\n]",
+  [
+    {
+      "id": "3904acb4-3a82-4a10-b23c-c51d94bb3299",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "password": "123456"
+    }
+  ],
   {
-    "id": "c14feca1-2115-405f-8a8f-314faf405b38",
+    "id": "2c4e872c-aaf4-49f2-b088-3614a18d6325",
     "name": "John Doe",
     "email": "johndoe@example.com",
     "password": "123456"

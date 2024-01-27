@@ -10,5 +10,17 @@
     "name": "Samuel Pavanati",
     "email": "sampavanati@gmail.com",
     "password": "123456"
+  },
+  {
+    "id": "77bdb2d0-a3d5-42c6-8295-38fb3d02384a",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "8f52b277-c5dc-4ab9-9d42-43288a2716c7",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "123456"
   }
 ]

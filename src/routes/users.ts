@@ -5,29 +5,44 @@ import fs from 'node:fs'
 
 export async function users(app: FastifyInstance) {
 	app.get('/users', async(request: FastifyRequest, reply: FastifyReply) => {
-		reply.send({
-			id: randomUUID(),
-			name: 'John Doe',
-			email: 'johndoe@example.com',
-			password: '123456',
-		})
+
+		const path = './user-data.json'
+
+		// reading latest data
+		let users = fs.readFileSync(path, 'utf8')
+
+		if (users) {
+			users = JSON.parse(users)
+
+		}
+
+		const usersObject = []
+
+		for await (const chunk of users) {
+			usersObject.push(chunk)
+
+		}
+
+		const buffers = [ ...usersObject ]
+
+		reply.send(buffers)
 	})  
 
 	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
 		const path = './user-data.json'
 
-		// reading latest data
-		let pastData = fs.readFileSync(path, 'utf8')
+		// reading user data
+		let users = fs.readFileSync(path, 'utf8')
 
-		if (pastData) {
-			pastData = JSON.parse(pastData)
+		if (users) {
+			users = JSON.parse(users)
 
 		}
 
-		const pastDataObject = []
+		const usersObject = []
 
-		for await (const chunk of pastData) {
-			pastDataObject.push(chunk)
+		for await (const chunk of users) {
+			usersObject.push(chunk)
 
 		}
 
@@ -47,16 +62,16 @@ export async function users(app: FastifyInstance) {
 			password: password,
 		}
 
-		const addUser = JSON.stringify(saveUserSchema, null, 2)
+		const newUser = JSON.stringify(saveUserSchema, null, 2)
 
-		pastDataObject.push(JSON.parse(addUser))
+		usersObject.push(JSON.parse(newUser))
 
-		for (const i of pastDataObject) {
+		for (const i of usersObject) {
 			console.log(i)
 		}
 
 		// save to buffer
-		const buffers = [ ...pastDataObject ]
+		const buffers = [ ...usersObject ]
 
 		// convert JSON to string
 		const saveUserToJSON = JSON.stringify(buffers, null, 2)
@@ -71,6 +86,6 @@ export async function users(app: FastifyInstance) {
 		})
 
 		// insomnia 
-		return reply.send(buffers)
+		return reply.send(newUser)
 	})  
 }

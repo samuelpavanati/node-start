@@ -1,6 +1,14 @@
-{
-  "id": "87873c97-a311-42a8-945f-0d7284b3c3c5",
-  "name": "John Doe",
-  "email": "johndoe@example.com",
-  "password": "123456"
-}
+[
+  {
+    "id": "448a0db0-3afe-4f69-8706-a64a67ceb2a3",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "ce3f6960-19d8-4fe6-8f43-a7d09162192e",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
+    "password": "123456"
+  }
+]

@@ -8,14 +8,14 @@ This project aims to learn how to create a server, add users, and implement othe
 
 - [x] Create a server
 - [x] Create a user
-- [ ] Save the users to a JSON file
+- [x] Save the users to a JSON file
 - [ ] Register users with Prisma
 - [ ] Create tests
 - [ ] Create features for the user
 
 > #### Doubts
 
-- [ ] How to save in JSON format correctly in user-data.json ?
+- [x] How to save in JSON format correctly in user-data.json ?
 
 # Commands
 

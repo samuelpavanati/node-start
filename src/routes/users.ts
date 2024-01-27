@@ -16,17 +16,10 @@ export async function users(app: FastifyInstance) {
 	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
 		const path = './user-data.json'
 
-		let buffer = fs.readFileSync(path, 'utf8')
+		let pastData = fs.readFileSync(path, 'utf8')
 
-		const buffers = []
-
-		console.log(buffer)
-
-		if (buffer) {
-			buffer = JSON.parse(buffer)
-			buffers.push(buffer)
-			console.log(buffers)
-
+		if (pastData) {
+			pastData = JSON.parse(pastData)
 		}
 
 		const registerUserSchema = z.object({
@@ -44,19 +37,28 @@ export async function users(app: FastifyInstance) {
 			password: password,
 		}
 
-		console.log('buffer antes', buffers)
+		let currentData = JSON.stringify(saveUserSchema, null, 2)
 
-		buffer = JSON.stringify(saveUserSchema, null, 2)
+		currentData = JSON.parse(currentData)
 
-		buffer = JSON.parse(buffer)
+		console.log('pastData', pastData)
+		console.log('currentData', currentData)
 
 		// save to buffer
-		// buffers = { ...buffer }
-		buffers.push(buffer)
+		let newJSON = { ...pastData, ...currentData }
+
+		// let newJSON
+		// if (pastData !== null) {
+		// 	newJSON = JSON.parse((JSON.stringify(pastData, null, 2) + JSON.stringify(currentData, null, 2)).replace(/}{/g,','))
+		// } else {
+		// 	newJSON = JSON.parse(JSON.stringify(currentData, null, 2).replace(/}{/g,','))
+		// }
+
+		// buffers.push(buffer)
 
 		// convert to JSON
 		// const saveUserToJSON = JSON.stringify(buffers, null, 2)
-		const saveUserToJSON = JSON.stringify(buffers, null, 2).toString()
+		const saveUserToJSON = JSON.stringify(newJSON, null, 2).toString()
 
 		// save to file
 		fs.writeFile(path, saveUserToJSON, (err) => {
@@ -68,6 +70,6 @@ export async function users(app: FastifyInstance) {
 		})
 
 		// insomnia 
-		return reply.send(buffers)
+		return reply.send(newJSON)
 	})  
 }

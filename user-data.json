@@ -1,12 +1,6 @@
 [
   {
-    "id": "07bf38e0-095f-4150-a297-49983d802d31",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "password": "123456"
-  },
-  {
-    "id": "f435a7d1-68c5-4410-b5ae-f08ff4033499",
+    "id": "0b15d4fa-b9a5-4789-8ccd-d44eb85053b3",
     "name": "John Doe",
     "email": "johndoe@example.com",
     "password": "123456"

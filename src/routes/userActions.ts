@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto'
 import fs from 'node:fs'
 import { z } from 'zod'
 
-export class User {
+export class Users {
 	constructor() {
 	}
 

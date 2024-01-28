@@ -1,9 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
-import { User } from './userActions'
+import { Users } from './userActions'
 
 export async function HTTPMethods(app: FastifyInstance) {
 	app.get('/users', async(_, reply: FastifyReply) => {
-		const users = new User()
+		const users = new Users()
 
 		const buffers = await users.read()
 
@@ -11,7 +11,7 @@ export async function HTTPMethods(app: FastifyInstance) {
 	})  
 
 	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
-		const users = new User()
+		const users = new Users()
 
 		const newUser = await users.create(request)
 
@@ -22,12 +22,12 @@ export async function HTTPMethods(app: FastifyInstance) {
 
 		const { id } = request.params
 
-		const users = new User()
+		const users = new Users()
 
 		const status = await users.delete(id)
 
 		console.log(status)
 
-		return reply.code(204).send(status)
+		return reply.send(status)
 	})
 }

@@ -8,22 +8,12 @@ export class User {
 	}
 
 	async read() {
-		let users = fs.readFileSync('./user-data.json', 'utf8')
+		const users = fs.readFileSync('./user-data.json', 'utf8')
 
-		if (users) {
-			users = JSON.parse(users)
-		}
-
-		const buffers = []
-
-		for await (const chunk of users) {
-			buffers.push(chunk)
-		}
-
-		return [ ...buffers ]
+		return await JSON.parse(users)
 	}
 
-	async write(request: FastifyRequest) {
+	async create(request: FastifyRequest) {
 		// get users
 		const users = await this.read()
 
@@ -38,9 +28,9 @@ export class User {
 
 		const saveUserSchema = {
 			id: randomUUID(),
-			name: name,
-			email: email,
-			password: password,
+			name,
+			email,
+			password,
 		}
 
 		const newUser = JSON.stringify(saveUserSchema, null, 2)
@@ -66,4 +56,38 @@ export class User {
 		return newUser
 	}
 
+	async delete(id: string) {
+		const users = await this.read()
+
+		let userDeleted = null
+
+		for (let i = 0; i < users.length; i++) {
+			if (id === users[i].id) {
+				userDeleted = users[i]
+				users.splice(i, 1)
+				break
+			}
+		}
+		
+		if (userDeleted) {
+			console.log(userDeleted)
+
+			const saveUsersToJSON = JSON.stringify(users, null, 2)
+
+			// save to file
+			fs.writeFile('./user-data.json', saveUsersToJSON, (err) => {
+				if (err) {
+					console.error('Error saving to JSON', err)
+					return
+				}
+				console.log('Saved to JSON successfully!')
+			})
+			
+			return 'User deleted successfully!'
+
+		} else {
+			return 'Error! User not found!'
+		}
+
+	}
 }

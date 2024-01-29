@@ -1,6 +1,18 @@
 [
   {
-    "id": "0b15d4fa-b9a5-4789-8ccd-d44eb85053b3",
+    "id": "0dd092dd-38f1-4be0-9d09-f1fb05b9e8fc",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "9043a632-104d-4702-9f5f-deccdcfcd8b9",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "123456"
+  },
+  {
+    "id": "9202267d-03c9-4b1e-952e-236b202acd4d",
     "name": "John Doe",
     "email": "johndoe@example.com",
     "password": "123456"

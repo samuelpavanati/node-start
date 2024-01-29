@@ -7,17 +7,30 @@ export class Users {
 	constructor() {
 	}
 
-	async read() {
+	async getUsers() {
 		const users = fs.readFileSync('./user-data.json', 'utf8')
 
 		return await JSON.parse(users)
 	}
 
-	async create(request: FastifyRequest) {
-		// get users
-		const users = await this.read()
+	async setUsers(users: string[]) {
+		const buffers = [ ...users ]
 
-		// get new user
+		const saveUsersToJSON = JSON.stringify(buffers, null, 2)
+
+		fs.writeFile('./user-data.json', saveUsersToJSON, (err) => {
+			if (err) {
+				console.error('Error saving to JSON', err)
+				return
+			}
+		})
+
+		return 'Users saved in JSON successfully!'
+	}
+
+	async createUser(request: FastifyRequest) {
+		const users = await this.getUsers()
+
 		const registerUserSchema = z.object({
 			name: z.string(),
 			email: z.string().email(),
@@ -36,28 +49,47 @@ export class Users {
 		const newUser = JSON.stringify(saveUserSchema, null, 2)
 
 		users.push(JSON.parse(newUser))
-
-		// save to buffer
-		const buffers = [ ...users ]
-
-		// convert JSON to string
-		const saveUsersToJSON = JSON.stringify(buffers, null, 2)
-
-		// save to file
-		fs.writeFile('./user-data.json', saveUsersToJSON, (err) => {
-			if (err) {
-				console.error('Error saving to JSON', err)
-				return
-			}
-
-			console.log('Data saved in JSON:', saveUsersToJSON)
-		})
+	
+		await this.setUsers(users)
 
 		return newUser
 	}
 
-	async delete(id: string) {
-		const users = await this.read()
+	async updateUser(request: FastifyRequest) {
+		const registerUserSchema = z.object({
+			id: z.string().uuid(),
+			name: z.string(),
+			email: z.string().email(),
+			password: z.string().min(6),
+		})
+
+		const userNow = registerUserSchema.parse(request.body)
+
+		let userBefore = null
+
+		const users = await this.getUsers()
+
+		for (let i = 0; i < users.length; i++) {
+			if (userNow.id === users[i].id) {
+				userBefore = users[i]
+				users[i] = userNow
+				break
+			}
+		}
+
+		await this.setUsers(users)
+
+		if (userBefore) {
+			console.log('User before:\n', userBefore)
+			console.log('User now:\n', userNow)
+			return 'User updated successfully!'		
+		} else {
+			return 'Error! User not found!'
+		}
+	}
+
+	async deleteUser(id: string) {
+		const users = await this.getUsers()
 
 		let userDeleted = null
 
@@ -70,21 +102,9 @@ export class Users {
 		}
 		
 		if (userDeleted) {
-			console.log(userDeleted)
-
-			const saveUsersToJSON = JSON.stringify(users, null, 2)
-
-			// save to file
-			fs.writeFile('./user-data.json', saveUsersToJSON, (err) => {
-				if (err) {
-					console.error('Error saving to JSON', err)
-					return
-				}
-				console.log('Saved to JSON successfully!')
-			})
-			
+			console.log('User deleted:\n', userDeleted)
+			await this.setUsers(users)
 			return 'User deleted successfully!'
-
 		} else {
 			return 'Error! User not found!'
 		}

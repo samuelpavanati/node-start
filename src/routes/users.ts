@@ -5,7 +5,7 @@ export async function HTTPMethods(app: FastifyInstance) {
 	app.get('/users', async(_, reply: FastifyReply) => {
 		const users = new Users()
 
-		const buffers = await users.read()
+		const buffers = await users.getUsers()
 
 		return reply.send(buffers)
 	})  
@@ -13,18 +13,27 @@ export async function HTTPMethods(app: FastifyInstance) {
 	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
 		const users = new Users()
 
-		const newUser = await users.create(request)
+		const newUser = await users.createUser(request)
 
 		return reply.send(newUser)
 	})
 
-	app.delete('/users/:id', async (request: FastifyRequest, reply: FastifyReply) => {
+	app.put('/update', async(request: FastifyRequest, reply: FastifyReply) => {
+		const users = new Users()
 
+		const status = await users.updateUser(request)
+
+		console.log(status)
+
+		return reply.send(status)
+	})
+
+	app.delete('/users/:id', async (request: FastifyRequest, reply: FastifyReply) => {
 		const { id } = request.params
 
 		const users = new Users()
 
-		const status = await users.delete(id)
+		const status = await users.deleteUser(id)
 
 		console.log(status)
 

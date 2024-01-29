@@ -1,11 +1,5 @@
 [
   {
-    "id": "0dd092dd-38f1-4be0-9d09-f1fb05b9e8fc",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
-    "password": "123456"
-  },
-  {
     "id": "9202267d-03c9-4b1e-952e-236b202acd4d",
     "name": "Samuel Pavanati",
     "email": "sampavanati@gmail.com",
@@ -21,6 +15,18 @@
     "id": "5d3d627d-0eb9-436c-9803-e320682bf742",
     "name": "Samuel Pavanati",
     "email": "sampavanati@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "881a3074-8021-4c2a-97bb-11889aaa51e6",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "123456"
+  },
+  {
+    "id": "ed1df828-9e0f-4e7d-943f-a4954225df8c",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
     "password": "123456"
   }
 ]

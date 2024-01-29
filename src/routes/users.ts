@@ -10,7 +10,7 @@ export async function HTTPMethods(app: FastifyInstance) {
 		return reply.send(buffers)
 	})  
 
-	app.post('/create', async(request: FastifyRequest, reply: FastifyReply) => {
+	app.post('/users', async(request: FastifyRequest, reply: FastifyReply) => {
 		const users = new Users()
 
 		const newUser = await users.createUser(request)
@@ -18,7 +18,7 @@ export async function HTTPMethods(app: FastifyInstance) {
 		return reply.send(newUser)
 	})
 
-	app.put('/update/:id', async(request: FastifyRequest, reply: FastifyReply) => {
+	app.put('/users/:id', async(request: FastifyRequest, reply: FastifyReply) => {
 		const users = new Users()
 
 		const status = await users.updateUser(request)

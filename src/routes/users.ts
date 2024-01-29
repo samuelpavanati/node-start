@@ -18,7 +18,7 @@ export async function HTTPMethods(app: FastifyInstance) {
 		return reply.send(newUser)
 	})
 
-	app.put('/update', async(request: FastifyRequest, reply: FastifyReply) => {
+	app.put('/update/:id', async(request: FastifyRequest, reply: FastifyReply) => {
 		const users = new Users()
 
 		const status = await users.updateUser(request)
@@ -29,11 +29,9 @@ export async function HTTPMethods(app: FastifyInstance) {
 	})
 
 	app.delete('/users/:id', async (request: FastifyRequest, reply: FastifyReply) => {
-		const { id } = request.params
-
 		const users = new Users()
 
-		const status = await users.deleteUser(id)
+		const status = await users.deleteUser(request)
 
 		console.log(status)
 

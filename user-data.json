@@ -6,15 +6,21 @@
     "password": "123456"
   },
   {
-    "id": "9043a632-104d-4702-9f5f-deccdcfcd8b9",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
+    "id": "9202267d-03c9-4b1e-952e-236b202acd4d",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
     "password": "123456"
   },
   {
-    "id": "9202267d-03c9-4b1e-952e-236b202acd4d",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
+    "id": "c5a2b0fe-0986-45af-88c8-dea59c666119",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "5d3d627d-0eb9-436c-9803-e320682bf742",
+    "name": "Samuel Pavanati",
+    "email": "sampavanati@gmail.com",
     "password": "123456"
   }
 ]

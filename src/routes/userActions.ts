@@ -56,23 +56,28 @@ export class Users {
 	}
 
 	async updateUser(request: FastifyRequest) {
+		const { id } = request.params
+
 		const registerUserSchema = z.object({
-			id: z.string().uuid(),
 			name: z.string(),
 			email: z.string().email(),
 			password: z.string().min(6),
 		})
 
-		const userNow = registerUserSchema.parse(request.body)
+		const { name, email, password } = registerUserSchema.parse(request.body)
 
 		let userBefore = null
+		let userNow = null
 
 		const users = await this.getUsers()
 
 		for (let i = 0; i < users.length; i++) {
-			if (userNow.id === users[i].id) {
+			if (id === users[i].id) {
 				userBefore = users[i]
-				users[i] = userNow
+
+				users[i] = { id, name, email, password }
+
+				userNow = users[i]
 				break
 			}
 		}
@@ -88,7 +93,9 @@ export class Users {
 		}
 	}
 
-	async deleteUser(id: string) {
+	async deleteUser(request: FastifyRequest) {
+		const { id } = request.params
+
 		const users = await this.getUsers()
 
 		let userDeleted = null

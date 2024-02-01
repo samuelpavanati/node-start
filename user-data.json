@@ -1,44 +1,14 @@
 [
   {
-    "id": "9202267d-03c9-4b1e-952e-236b202acd4d",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
-    "password": "123456"
-  },
-  {
-    "id": "c5a2b0fe-0986-45af-88c8-dea59c666119",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
-    "password": "123456"
-  },
-  {
-    "id": "5d3d627d-0eb9-436c-9803-e320682bf742",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
-    "password": "123456"
-  },
-  {
-    "id": "ed1df828-9e0f-4e7d-943f-a4954225df8c",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "password": "123456"
-  },
-  {
-    "id": "528e1beb-b94b-4996-9e73-8472c2b0916d",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "password": "123456"
-  },
-  {
-    "id": "13061e05-6ed2-4d7d-ad09-8e7a36a713a6",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "password": "123456"
-  },
-  {
     "id": "eb0ce556-c4b6-4719-afe9-6d69d4c7c5bf",
     "name": "John Doe",
     "email": "johndoe@example.com",
+    "password": "123456"
+  },
+  {
+    "id": "06f7d4a2-7f40-41b8-87fd-6604649558b4",
+    "name": "Jane Doe",
+    "email": "janedoe@example.com",
     "password": "123456"
   }
 ]

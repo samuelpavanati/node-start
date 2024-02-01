@@ -12,8 +12,6 @@ This project aims to learn how to create a server, add users, and implement othe
 - [ ] The user cannot register with a duplicate email
 - [ ] Encrypt password
 - [ ] Create tests
-- [ ] Register users with Drizzle
-- [ ] Deploy no Vercel
 
 > #### Doubts
 
@@ -55,15 +53,15 @@ User {
 ```
 [
   {
-    "id": "fae14c3d-ba58-4031-ae1a-bbbf6b4a57ed",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
+    "id": "eb0ce556-c4b6-4719-afe9-6d69d4c7c5bf",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
     "password": "123456"
   },
   {
-    "id": "fd0be0d3-935c-4e4a-91fe-d9a12b414c3e",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
+    "id": "06f7d4a2-7f40-41b8-87fd-6604649558b4",
+    "name": "Jane Doe",
+    "email": "janedoe@example.com",
     "password": "123456"
   }
 ]

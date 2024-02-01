@@ -12,8 +12,6 @@ This project aims to learn how to create a server, add users, and implement othe
 - [ ] The user cannot register with a duplicate email
 - [ ] Encrypt password
 - [ ] Create tests
-- [ ] Register users with Drizzle
-- [ ] Deploy no Vercel
 
 > #### Doubts
 

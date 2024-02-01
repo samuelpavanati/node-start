@@ -15,6 +15,7 @@ This project aims to learn how to create a server, add users, and implement othe
 - [ ] Register users with Drizzle
 - [ ] Deploy no Vercel
 
+
 > #### Doubts
 
 - [x] How to save in JSON format correctly in user-data.json ?

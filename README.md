@@ -37,6 +37,9 @@ pnpm i dotenv
 pnpm i @fastify/cookie
 pnpm i vitest -D
 pnpm i @vitest/ui -D
+pnpm i drizzle-orm
+pnpm i postgres
+pnpm i drizzle-kit -D
 ```
 
 # Implementation

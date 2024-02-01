@@ -7,7 +7,9 @@
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "build": "tsup src --out-dir build",
+    "prod": "node build/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +23,8 @@
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
-    "vitest": "^1.2.1"
+    "vitest": "^1.2.1",
+    "@types/bun": "latest"
   },
   "dependencies": {
     "@fastify/cookie": "^9.3.1",

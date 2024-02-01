@@ -18,12 +18,6 @@
     "password": "123456"
   },
   {
-    "id": "881a3074-8021-4c2a-97bb-11889aaa51e6",
-    "name": "Samuel Pavanati",
-    "email": "sampavanati@gmail.com",
-    "password": "123456"
-  },
-  {
     "id": "ed1df828-9e0f-4e7d-943f-a4954225df8c",
     "name": "John Doe",
     "email": "johndoe@example.com",
@@ -31,6 +25,18 @@
   },
   {
     "id": "528e1beb-b94b-4996-9e73-8472c2b0916d",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "123456"
+  },
+  {
+    "id": "13061e05-6ed2-4d7d-ad09-8e7a36a713a6",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "123456"
+  },
+  {
+    "id": "eb0ce556-c4b6-4719-afe9-6d69d4c7c5bf",
     "name": "John Doe",
     "email": "johndoe@example.com",
     "password": "123456"

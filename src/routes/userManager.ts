@@ -103,7 +103,7 @@ export class Users {
 			
 			console.log('User deleted:\n', userDeleted)
 			
-			return 'User deletec successfully!'
+			return 'User deleted successfully!'
 		} else {
 			
 			return 'Error! User not found!'

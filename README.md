@@ -9,9 +9,11 @@ This project aims to learn how to create a server, add users, and implement othe
 - [x] Create a server
 - [x] Create a user
 - [x] Save the users to a JSON file
-- [ ] Register users with Prisma
+- [ ] The user cannot register with a duplicate email
+- [ ] Encrypt password
 - [ ] Create tests
-- [ ] Create features for the user
+- [ ] Register users with Drizzle
+- [ ] Deploy no Vercel
 
 > #### Doubts
 

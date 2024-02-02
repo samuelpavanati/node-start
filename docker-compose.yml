@@ -9,3 +9,5 @@ services:
       - POSTGRESQL_USERNAME=docker 
       - POSTGRESQL_PASSWORD=docker 
       - POSTGRESQL_DATABASE=nodestart
+    mem_limit: 1g
+    memswap_limit: 2g

@@ -45,16 +45,20 @@ docker run --name node-start-pg -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASS
 docker ps
 docker start node-start-pg
 docker logs node-start-pg -f
-npx prisma migrate dev
-npx prisma studio
+npx prisma migrate dev (to create the table in the database again, execute with each change)
+npx prisma studio (open database)
 docker stop node-start-pg
 docker rm node-start-pg (to run with docker-compose)
 docker compose up -d
 docker compose stop (stop the container without deleting it)
 docker compose down (remove all container data)
-npx prisma migrate dev (to create the table in the database again, execute with each change)
-npx prisma studio
 npx prisma migrate deploy (only in production)
+pnpm i vite-tsconfig-paths -D (for imports @/)
+pnpm i bcryptjs (for password_hash)
+pnpm i @types/bcryptjs -D
+pnpm i @vitest/ui -D
+pnpm run test:coverage
+pnpm i @vitest/coverage-v8
 ```
 
 # Implementation

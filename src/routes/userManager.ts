@@ -84,7 +84,8 @@ export class Users {
 	}
 
 	async updateUser(request: FastifyRequest) {
-		const { id } = request.params
+		const params = request.params as { id: string };
+		const { id } = params
 		const { name, email, password } = this.validateUserInput(request)
 		const users = await this.getUsers()
 
@@ -108,7 +109,13 @@ export class Users {
 	}
 
 	async deleteUser(request: FastifyRequest) {
-		const { id } = request.params
+		const params = request.params as { id: string };
+		const { id } = params
+		
+		if (!id) {
+			return
+		}
+
 		const users = await this.getUsers()
 		const index = users.findIndex(user => user.id === id)
 		

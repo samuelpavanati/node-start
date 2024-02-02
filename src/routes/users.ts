@@ -11,9 +11,9 @@ export async function HTTPMethods(app: FastifyInstance) {
 	})  
 
 	app.post('/users', async(request: FastifyRequest, reply: FastifyReply) => {
-		const newUser = await users.createUser(request)
+		const user = await users.createUser(request)
 
-		return reply.send(newUser)
+		return reply.send(user)
 	})
 
 	app.put('/users/:id', async(request: FastifyRequest, reply: FastifyReply) => {

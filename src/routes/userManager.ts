@@ -16,11 +16,26 @@ interface NewUserData {
 	password: string
 }
 
+// used when there is no user in user-data.json
+const firstUser =
+[
+	{
+		'id': 'eb0ce556-c4b6-4719-afe9-6d69d4c7c5bf',
+		'name': 'First User',
+		'email': 'firstuser@example.com',
+		'password': '123456'
+	}
+]
+
 export class Users {
 	private readonly filePath = './user-data.json'
 
 	private async readUserFile(): Promise<User[]> {
 		const usersData = fs.readFileSync(this.filePath, 'utf-8')
+
+		if (usersData.length < 1) {
+			return JSON.parse( JSON.stringify(firstUser, null, 2) )			
+		}
 		
 		return JSON.parse(usersData)
 	}

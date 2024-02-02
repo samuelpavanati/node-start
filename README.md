@@ -9,15 +9,15 @@ This project aims to learn how to create a server, add users, and implement othe
 - [x] Create a server
 - [x] Create a user
 - [x] Save the users to a JSON file
-- [ ] The user cannot register with a duplicate email
-- [ ] Password hash
-- [ ] Create tests
-- [ ] Register users with Prisma
+- [x] The user cannot register with a duplicate email
+- [x] Password hash
+- [x] Create tests
+- [ ] Register users with Prisma 🤏🏼
 - [ ] Deploy no Render
 
 > #### Doubts
 
-- [x] How to save in JSON format correctly in user-data.json ?
+
 
 # Commands
 
@@ -61,6 +61,9 @@ pnpm run test:coverage
 pnpm i @vitest/coverage-v8
 ```
 
+# Explanations
+- Unit Tests doesn't access the database
+
 # Implementation
 
 > User Format
@@ -73,26 +76,25 @@ User {
 }
 ```
 
-> JSON Format
+> Prisma Format
 ```
-[
-  {
-    "id": "eb0ce556-c4b6-4719-afe9-6d69d4c7c5bf",
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "password": "123456"
-  },
-  {
-    "id": "06f7d4a2-7f40-41b8-87fd-6604649558b4",
-    "name": "Jane Doe",
-    "email": "janedoe@example.com",
-    "password": "123456"
-  }
-]
+export type UserCreateInput = {
+  id?: string
+  name: string
+  email: string
+  password_hash: string
+  created_at?: Date | string
+}
 ```
 
 # Websites
 
+> [Docker Hub](https://hub.docker.com/)
+
+> [Fastify](https://fastify.dev/docs/latest/Reference/)
+
 > [HTTP Request Methods](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
 > [Learn Node](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
+
+> [Prisma ORM](https://www.prisma.io/docs/getting-started/quickstart)

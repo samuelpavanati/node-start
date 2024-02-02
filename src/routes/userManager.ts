@@ -84,7 +84,7 @@ export class Users {
 	}
 
 	async updateUser(request: FastifyRequest) {
-		const params = request.params as { id: string };
+		const params = request.params as { id: string }
 		const { id } = params
 		const { name, email, password } = this.validateUserInput(request)
 		const users = await this.getUsers()
@@ -109,7 +109,7 @@ export class Users {
 	}
 
 	async deleteUser(request: FastifyRequest) {
-		const params = request.params as { id: string };
+		const params = request.params as { id: string }
 		const { id } = params
 		
 		if (!id) {

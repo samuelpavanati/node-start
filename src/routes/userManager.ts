@@ -16,12 +16,27 @@ interface NewUserData {
 	password: string
 }
 
+// used when there is no user in user-data.json
+const firstUser =
+[
+	{
+		'id': 'eb0ce556-c4b6-4719-afe9-6d69d4c7c5bf',
+		'name': 'First User',
+		'email': 'firstuser@example.com',
+		'password': '123456'
+	}
+]
+
 export class Users {
 	private readonly filePath = './user-data.json'
 
 	private async readUserFile(): Promise<User[]> {
 		const usersData = fs.readFileSync(this.filePath, 'utf-8')
-		
+
+		if (usersData.length < 1) {
+			return JSON.parse( JSON.stringify(firstUser, null, 2) )			
+		}
+
 		return JSON.parse(usersData)
 	}
 
@@ -46,16 +61,17 @@ export class Users {
 	}
 
 	async getUsers(): Promise<User[]> {
+
 		return await this.readUserFile()
 	}
 
-	async setUsers(users: User[]): Promise<string> {
+	async setUsers(users: User[]): Promise<string> {		
 		await this.writeUsersFile(users)
 		
 		return 'Users saved in JSON successfully!'
 	}
 
-	async createUser(request: FastifyRequest): Promise<string> {
+	async createUser(request: FastifyRequest): Promise<User> {
 		const { name, email, password } = this.validateUserInput(request)
 		const newUser: User = { id: randomUUID(), name, email, password }
 		const users = await this.getUsers()
@@ -64,7 +80,7 @@ export class Users {
 		
 		await this.setUsers(users)
 		
-		return JSON.stringify(newUser, null, 2)
+		return newUser
 	}
 
 	async updateUser(request: FastifyRequest) {

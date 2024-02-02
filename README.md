@@ -10,7 +10,7 @@ This project aims to learn how to create a server, add users, and implement othe
 - [x] Create a user
 - [x] Save the users to a JSON file
 - [ ] The user cannot register with a duplicate email
-- [ ] Encrypt password
+- [ ] Password hash
 - [ ] Create tests
 - [ ] Register users with Prisma
 - [ ] Deploy no Render
@@ -37,6 +37,24 @@ pnpm i dotenv
 pnpm i @fastify/cookie
 pnpm i vitest -D
 pnpm i @vitest/ui -D
+pnpm i prisma -D
+npx prisma init
+npx prisma generate
+pnpm i @prisma/client
+docker run --name node-start-pg -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=nodestart -p 5432:5432 bitnami/postgresql (for this command Docker Desktop needs to be open)
+docker ps
+docker start node-start-pg
+docker logs node-start-pg -f
+npx prisma migrate dev
+npx prisma studio
+docker stop node-start-pg
+docker rm node-start-pg (to run with docker-compose)
+docker compose up -d
+docker compose stop (stop the container without deleting it)
+docker compose down (remove all container data)
+npx prisma migrate dev (to create the table in the database again, execute with each change)
+npx prisma studio
+npx prisma migrate deploy (only in production)
 ```
 
 # Implementation

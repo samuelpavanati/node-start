@@ -1,9 +1,11 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import { Users } from './userManager'
+import { PrismaClient } from '@prisma/client'
 
 export async function HTTPMethods(app: FastifyInstance) {
 	const users = new Users()
-
+	const prisma = new PrismaClient()
+	
 	app.get('/users', async(_, reply: FastifyReply) => {
 		const buffers = await users.getUsers()
 
@@ -11,9 +13,17 @@ export async function HTTPMethods(app: FastifyInstance) {
 	})  
 
 	app.post('/users', async(request: FastifyRequest, reply: FastifyReply) => {
-		const newUser = await users.createUser(request)
+		const user = await users.createUser(request)
 
-		return reply.send(newUser)
+		prisma.user.create({
+			data: {
+				id: user.id,
+				name: user.name,
+				email: user.email,
+			},
+		})
+
+		return reply.send(user)
 	})
 
 	app.put('/users/:id', async(request: FastifyRequest, reply: FastifyReply) => {
